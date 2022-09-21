@@ -8,11 +8,11 @@ import Typography from '@mui/material/Typography'
 import Menu from '@mui/material/Menu'
 import MenuIcon from '@mui/icons-material/Menu'
 import Container from '@mui/material/Container'
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Button from '@mui/material/Button'
-import Tooltip from '@mui/material/Tooltip'
 import MenuItem from '@mui/material/MenuItem'
-import Logo from "../../assets/logo/logo.png"
+import Logo from '../../assets/logo/logo.png'
+import CartWidget from '../cartWidget'
+
 
 const pages = [
 	{
@@ -23,17 +23,17 @@ const pages = [
 		page: 'Shop',
 		route: '/shop',
 	},
-    {
+	{
 		page: 'Contact',
 		route: '/contact',
 	},
-    {
+	{
 		page: 'Help',
 		route: '/help',
-	}
+	},
 ]
 
-const ResponsiveAppBar = () => {
+const Navbar = () => {
 	return (
 		<AppBar position='static'>
 			<Container maxWidth='xl'>
@@ -65,7 +65,7 @@ const ResponsiveAppBar = () => {
 							))}
 						</Menu>
 					</Box>
-					<img src={Logo} width="30"/>
+					<img src={Logo} width='30' />
 					<Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 						{pages.map((item) => (
 							<Button href={item.route} key={item.page} sx={{ my: 2, color: 'white', display: 'block' }}>
@@ -75,16 +75,11 @@ const ResponsiveAppBar = () => {
 					</Box>
 
 					<Box sx={{ flexGrow: 0 }}>
-						<Tooltip title='Abrir Carrito'>
-							<IconButton  href={"/cart"} sx={{ p: 0 }}>
-                            <ShoppingCartIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-							</IconButton>
-						</Tooltip>
-
+						<CartWidget/>
 					</Box>
 				</Toolbar>
 			</Container>
 		</AppBar>
 	)
 }
-export default ResponsiveAppBar
+export default Navbar
