@@ -1,0 +1,5 @@
+export const HOME_PATH="/"
+export const SHOP_PATH="/shop"
+export const PRODUCT_PATH="/product"
+export const CART_PATH="/cart"
+export const CONTACT_PATH="/contact"
